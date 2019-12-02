@@ -6,30 +6,48 @@ public class laser : MonoBehaviour
 {
     private LineRenderer lineRenderer;
 
-    public Transform LaserHit;
+    public float maxRayDistance = 1.0e30f;
+
+    // public Transform LaserHit;
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = false;
+        lineRenderer.enabled = true;
         lineRenderer.useWorldSpace= true;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        // Laser();
+        // Debug.DrawLine (transform.position, transform.position + Vector3.up * maxRayDistance);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
         Debug.DrawLine(transform.position, hit.point);
-        LaserHit.position = hit.point;
-
+        
         lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, LaserHit.position);
-    
-        if(Input.GetKey(KeyCode.Space))
-        {
-            lineRenderer.enabled = true;
-        } else {
-            lineRenderer.enabled  = false;
+        lineRenderer.SetPosition(1, hit.point);
+        // if(Input.GetKey(KeyCode.Space))
+        // {
+        //     lineRenderer.enabled = true;
+        // } else {
+        //     lineRenderer.enabled  = false;
+        // }
+        if (hit.collider.tag == "Mirrors") {
+            lineRenderer.SetPosition (2, hit.point + 100.0f * Vector2.Reflect (transform.position, hit.normal));
         }
     }
+
+
+    
+    // void Laser () {
+    // Ray ray = new Ray (transform.position, Vector3.up);
+    // RaycastHit hit;
+    // lineRenderer.SetPosition (0, ray.origin);
+    // if (Physics.Raycast (ray, out hit, 100)) {
+    //     lineRenderer.SetPosition (1, hit.point);
+    // } else {
+    //     lineRenderer.SetPosition (1, ray.GetPoint (100));
+    // }
+    
 }
