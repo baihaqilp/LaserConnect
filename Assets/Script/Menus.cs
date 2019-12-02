@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {   
-    void OnMouseDown(){
-        Debug.Log("jadi");
+   public void OnMouseClick(){
         SceneManager.LoadScene("Level1");
             
     }
