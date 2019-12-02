@@ -27,12 +27,12 @@ public class laser : MonoBehaviour
         
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, hit.point);
-        // if(Input.GetKey(KeyCode.Space))
-        // {
-        //     lineRenderer.enabled = true;
-        // } else {
-        //     lineRenderer.enabled  = false;
-        // }
+        if(Input.GetKey(KeyCode.Space))
+        {
+            lineRenderer.enabled = true;
+        } else {
+            lineRenderer.enabled  = false;
+        }
         if (hit.collider.tag == "Mirrors") {
             lineRenderer.SetPosition (2, hit.point + 100.0f * Vector2.Reflect (transform.position, hit.normal));
         }
