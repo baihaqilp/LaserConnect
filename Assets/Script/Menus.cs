@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {   
    public void OnMouseClick(){
-        SceneManager.LoadScene(1);
+        Application.LoadLevel(1);
     }
 }
