@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class Menus : MonoBehaviour
 {   
    public void OnMouseClick(){
-        SceneManager.LoadScene(1);
+        Application.LoadLevel(1);
+    }
+
+    public void OnLevelClick(){
+        Application.LoadLevel(2);
+    }
+
+    public void BackPressed(){
+        Application.LoadLevel(0);
     }
 }
