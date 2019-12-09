@@ -5,8 +5,11 @@ using UnityEngine;
 public class MirrorBehaviorScript : MonoBehaviour
 {
 
+    public GameObject[] waypoints;
+    int current = 0;
+    float radius = 1;
 
-    public float clickDelta = 0.35f;  // Max between two click to be considered a double click
+    public float clickDelta = 0.35f, speed;  // Max between two click to be considered a double click
  
      private bool click = false;
      private float clickTime;
@@ -33,8 +36,16 @@ public class MirrorBehaviorScript : MonoBehaviour
     
     void Update()
     {
-        
-    }         //Floating point variable to store the player's movement speed.
+        if (Vector2.Distance(waypoints[current].transform.position, transform.position)<radius)
+        {
+            current++;
+            if (current >= waypoints.Length)
+            {
+                current = 0;
+            }
+        }
+        transform.position = Vector2.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
+    }
 
 }
 
