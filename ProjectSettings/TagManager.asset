@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mirrors
+  - Mirror
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - wall
+  - Light
   - 
   - 
   - 
