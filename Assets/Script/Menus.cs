@@ -16,4 +16,10 @@ public class Menus : MonoBehaviour
     public void BackPressed(){
         SceneManager.LoadScene(0);
     }
+    public void SettingMenu(){
+        SceneManager.LoadScene(4);
+    }
+    public void About(){
+        
+    }
 }

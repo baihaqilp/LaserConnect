@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LightCreator : MonoBehaviour {
 
@@ -32,6 +33,12 @@ public class LightCreator : MonoBehaviour {
 		MaxDistPoints = RAYLENGTH * RAYMAXSPACING/6;
 	}
 	
+	// void OnCollisionEnter(Collision2D col){
+	// 	if(col.gameObject.tag == "switch"){
+	// 		Debug.Log("mboh");
+	// 		SceneManager.LoadScene("level2");
+	// 	}
+	// }
 	// Update is called once per frame
 	void Update () {
 		CreateMesh();
@@ -311,7 +318,13 @@ public class LightCreator : MonoBehaviour {
 				numReflecs = Mathf.Max(RecursiveReflection(reflectionLevel+1, rayIndex,  nextPoint, newDirection, mirrorNormal, reflectionPoints), numReflecs);
 				
 			}
+			if(h.collider.gameObject.tag == "switch"){
+				Debug.Log("Errou Wall");
+        		SceneManager.LoadScene("level2");
+      		}
+			
 		}else{
+			
 			//Debug.Log("Errou Wall");
 			nextPoint = incidentPoint + newDirection * RAYLENGTH;
 		}
