@@ -6,19 +6,18 @@ public class laser : MonoBehaviour
 {
     private LineRenderer lineRenderer;
 
-    public float maxRayDistance = 1.0e30f;
-
-    // public Transform LaserHit;
+    // public float maxRayDistance = 1.0e30f;
+    public Transform LaserHit;
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.enabled = true;
+        lineRenderer.enabled = false;
         lineRenderer.useWorldSpace= true;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // Laser();
         // Debug.DrawLine (transform.position, transform.position + Vector3.up * maxRayDistance);
@@ -26,15 +25,17 @@ public class laser : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point);
         
         lineRenderer.SetPosition(0, transform.position);
-        lineRenderer.SetPosition(1, hit.point);
+        lineRenderer.SetPosition(1, LaserHit.point);
+
         if(Input.GetKey(KeyCode.Space))
         {
-            lineRenderer.enabled = true;
+            lineRenderer.enabled = false;
         } else {
-            lineRenderer.enabled  = false;
+            lineRenderer.enabled  = true;
         }
         if (hit.collider.tag == "Mirrors") {
             lineRenderer.SetPosition (2, hit.point + 100.0f * Vector2.Reflect (transform.position, hit.normal));
+            
         }
     }
 
