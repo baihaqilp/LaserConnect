@@ -7,6 +7,8 @@ TagManager:
   - Mirrors
   - Mirror
   - Light
+  - music
+  - switch
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - wall
   - Light
-  - 
+  - switch
   - 
   - 
   - 
