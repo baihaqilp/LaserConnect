@@ -22,4 +22,7 @@ public class BGM : MonoBehaviour
             Destroy(this.gameObject);
         DontDestroyOnLoad(this.gameObject);
     }
+    public void stopMusic(){
+        DontDestroyOnLoad(this.gameObject);
+    }
 }
