@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {   
+
+    public bool gamePaused = false;
+    public GameObject pauseMenu;
+
    public void OnMouseClick(){
        SceneManager.LoadScene(1);
     }
@@ -21,5 +25,28 @@ public class Menus : MonoBehaviour
     }
     public void About(){
         
+    }
+    public void PauseMenu(){
+        if (gamePaused == false)
+        {
+            Time.timeScale = 0;
+            gamePaused = true;
+            pauseMenu.SetActive(true);
+        }else
+        {
+            pauseMenu.SetActive(false);
+            gamePaused = false;
+            Time.timeScale = 1;
+        }
+    }
+
+    void Update(){
+        
+    }
+
+    public void UnpauseGame(){
+        pauseMenu.SetActive(false);
+        gamePaused = false;
+        Time.timeScale = 1;
     }
 }
