@@ -318,7 +318,7 @@ public class LightCreator : MonoBehaviour {
 				numReflecs = Mathf.Max(RecursiveReflection(reflectionLevel+1, rayIndex,  nextPoint, newDirection, mirrorNormal, reflectionPoints), numReflecs);
 				
 			}
-					
+			
 		}else{
 			
 			//Debug.Log("Errou Wall");
