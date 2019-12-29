@@ -7,14 +7,23 @@ public class Menus : MonoBehaviour
 {   
 
     public bool gamePaused = false;
-    public GameObject pauseMenu;
+    public bool currentpage = true;
+    public GameObject pauseMenu, settingMenu, lvlMenu, aboutMenu, menuLayout;
 
    public void OnMouseClick(){
        SceneManager.LoadScene(1);
     }
 
     public void OnLevelClick(){
-        SceneManager.LoadScene(2);
+        if (currentpage == true)
+        {
+            menuLayout.SetActive(false);
+            lvlMenu.SetActive(true);
+        }else
+        {
+            menuLayout.SetActive(true);
+            lvlMenu.SetActive(false);
+        }
     }
 
     public void BackPressed(){
@@ -41,7 +50,7 @@ public class Menus : MonoBehaviour
     }
 
     void Update(){
-        
+        // PauseMenu();
     }
 
     public void UnpauseGame(){
