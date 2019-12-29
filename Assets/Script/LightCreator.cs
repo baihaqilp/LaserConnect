@@ -318,11 +318,7 @@ public class LightCreator : MonoBehaviour {
 				numReflecs = Mathf.Max(RecursiveReflection(reflectionLevel+1, rayIndex,  nextPoint, newDirection, mirrorNormal, reflectionPoints), numReflecs);
 				
 			}
-			if(h.collider.gameObject.tag == "switch"){
-				Debug.Log("Errou Wall");
-        		SceneManager.LoadScene("level2");
-      		}
-			
+					
 		}else{
 			
 			//Debug.Log("Errou Wall");
