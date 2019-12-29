@@ -8,7 +8,7 @@ public class Menus : MonoBehaviour
 
     public bool gamePaused = false;
     public bool currentpage = true;
-    public GameObject pauseMenu, settingMenu, lvlMenu, aboutMenu, menuLayout;
+    public GameObject pauseMenu, settingMenu, lvlMenu, aboutMenu, menuLayout, backPress;
 
    public void OnMouseClick(){
        SceneManager.LoadScene(1);
@@ -19,6 +19,7 @@ public class Menus : MonoBehaviour
         {
             menuLayout.SetActive(false);
             lvlMenu.SetActive(true);
+            backPress.SetActive(true);
         }else
         {
             menuLayout.SetActive(true);
@@ -27,13 +28,33 @@ public class Menus : MonoBehaviour
     }
 
     public void BackPressed(){
-        SceneManager.LoadScene(0);
+        menuLayout.SetActive(true);
+        settingMenu.SetActive(false);
+        lvlMenu.SetActive(false);
+        aboutMenu.SetActive(false);
+        backPress.SetActive(false);
     }
     public void SettingMenu(){
-        SceneManager.LoadScene(4);
+        if (currentpage == true)
+        {
+            menuLayout.SetActive(false);
+            settingMenu.SetActive(true);
+            backPress.SetActive(true);
+        }else{
+            menuLayout.SetActive(true);
+            settingMenu.SetActive(false);
+        }
     }
     public void About(){
-        
+        if (currentpage == true)
+        {
+            menuLayout.SetActive(false);
+            aboutMenu.SetActive(true);
+            backPress.SetActive(true);
+        }else{
+            menuLayout.SetActive(true);
+            aboutMenu.SetActive(false);
+        }
     }
     public void PauseMenu(){
         if (gamePaused == false)

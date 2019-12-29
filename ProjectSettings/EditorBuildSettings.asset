@@ -11,13 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 1c1d2416690c999b48a6f7c1118d899a
-  - enabled: 1
-    path: Assets/Scenes/level.unity
-    guid: b3c181e326b575c019c44339cc7b0974
-  - enabled: 0
-    path: Assets/perfabs/feedback.unity
-    guid: aaf48b73ed561f72e9bcd8a546f0090a
-  - enabled: 1
-    path: Assets/Scenes/setting.unity
-    guid: dc90ba66165cd1449bb7bcfe007ef502
   m_configObjects: {}
