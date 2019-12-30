@@ -35,15 +35,15 @@ public class MirrorBehaviorScript : MonoBehaviour
     
     void Update()
     {
-        if (Vector2.Distance(waypoints[current].transform.position, transform.position)<radius)
-        {
-            current++;
-            if (current >= waypoints.Length)
-            {
-                current = 0;
-            }
-        }
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
+        // if (Vector2.Distance(waypoints[current].transform.position, transform.position)<radius)
+        // {
+        //     current++;
+        //     if (current >= waypoints.Length)
+        //     {
+        //         current = 0;
+        //     }
+        // }
+        // transform.position = Vector2.MoveTowards(transform.position, waypoints[current].transform.position, Time.deltaTime * speed);
     }         //Floating point variable to store the player's movement speed.
 
 }
